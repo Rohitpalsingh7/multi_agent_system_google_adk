@@ -46,7 +46,7 @@ The diagram below illustrates the flow and interaction between agents in the Mul
 
 ![Multi-Agent System Architecture](architecture.png)
 
-**Explanation:**
+**Key Features:**
 
 1. **Orchestrator Agent**  
    - Receives user queries and delegates tasks to the right specialist agent.
@@ -57,3 +57,80 @@ The diagram below illustrates the flow and interaction between agents in the Mul
 4. **Workflow**  
    - The orchestrator ensures the right agent handles each query.
    - Outputs are collected and returned to the user in a simplified format.
+
+# Installation 
+
+## Project Directory Structure (for reference)
+
+```
+multi_agent_system_google_adk/
+│
+├── creative_analytics/
+│   ├── creative_analytics_agents/
+│   │   ├── .env                  # Environment variables
+│   │   ├── requirements.txt      # Python packages
+│   │   ├── .agent_engine_config.json
+│   │   ├── agent.py
+│   │   ├── utils
+│   │   └── sub_agents
+│   ├── data/
+│   ├── scripts/
+│   └── README.md
+│
+└── 
+```
+
+## Prerequisites
+
+- **Google Cloud Account**: Ensure you have a Google Cloud account with BigQuery enabled.
+- **Python Version**: Python 3.11.6+ recommended.
+- **APIs to Enable in Your Google Cloud Project** (required for Vertex AI agent deployment):
+  - Vertex AI API
+  - Cloud Storage API
+  - Cloud Logging API
+  - Cloud Monitoring API
+  - Cloud Trace API
+  - Telemetry API
+  - BigQuery API
+
+## 1. Install Python Packages
+
+Install all dependencies from the `requirements.txt` file located in **`creative_analytics/creative_analytics_agents/`** directory.
+
+## 2. Setup Google Cloud CLI
+
+Initialize Google Cloud CLI and authenticate your account:
+
+```
+gcloud init
+gcloud auth application-default login
+```
+
+## 3. Create the .env file 
+
+Create a .env file under **`creative_analytics/creative_analytics_agents/`** directory. Include the following environment variables:
+
+```
+# Google cloud variables
+GOOGLE_CLOUD_PROJECT_ID=your_google_project
+GOOGLE_CLOUD_LOCATION=google_cloud_location
+
+# BigQuery variables
+BQ_DATASET_NAME=creative_analytics # Keep same as it is
+BQ_TABLE_NAME=creative_tags_performance # Keep same as it is
+BQ_MODEL_NAME=video_views_classifier # Keep same as it is
+
+# Dataset configurations
+DATASET_CONFIG_FILE=dataset_config.json # Keep same as it is
+
+# Gemini model for agents
+ROOT_AGENT_MODEL=gemini-2.5-flash # Keep same as it is
+STATS_AGENT_MODEL=gemini-2.5-flash # Keep same as it is
+PREDICTOR_AGENT_MODEL=gemini-2.5-flash # Keep same as it is
+
+# Use Vertex AI
+GOOGLE_GENAI_USE_VERTEXAI=1
+```
+
+
+
