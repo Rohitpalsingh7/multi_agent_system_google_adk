@@ -8,8 +8,6 @@ Brands constantly ask questions like:
 
 Answering these questions across dozens of brands and thousands of ads is slow, repetitive, and resource-intensive. Data analysts must manually write SQL, run statistical analysis, validate creative tags, clean results, and prepare insights. Meanwhile, clients wait days for answers—delaying decisions and increasing marketing costs.
 
----
-
 ## Solution: Multi-Agent Creative Analytics System
 
 To solve this real-world problem, I built a **Multi-Agent Creative Analytics System** using **Google ADK**, designed to let brands get **accurate insights instantly** without depending on analysts.
@@ -18,11 +16,9 @@ To solve this real-world problem, I built a **Multi-Agent Creative Analytics Sys
 
 - **Orchestrator Agent**: Understands user intent and routes tasks to the right specialist agent.  
 - **Statistical Analysis Agent**: Examines historical performance using SQL to answer *“What worked before?”*  
-- **Performance Prediction Agent**: Analyzes new creatives using multi-modal LLMs and BigQuery ML to predict *“What will work next?”*  
+- **Performance Prediction Agent**: Analyzes new creatives using multi-modal LLMs and BigQuery ML to predict *“whether their ads will succeed or not”*  
 
 Together, they automate **end-to-end creative intelligence**, empowering brands to act quickly and confidently.
-
----
 
 ## Why This Matters
 
@@ -34,8 +30,6 @@ This system gives brands a **front-row seat** to their creative performance:
 - Save **time, effort, and significant marketing spend**  
 
 For analytics teams, it removes repetitive SQL tasks and frees them to focus on **high-value insights**.
-
----
 
 ## Real-World Impact
 
