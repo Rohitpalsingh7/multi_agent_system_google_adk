@@ -129,8 +129,81 @@ STATS_AGENT_MODEL=gemini-2.5-flash # Don't change
 PREDICTOR_AGENT_MODEL=gemini-2.5-flash # Don't change
 
 # Use Vertex AI
-GOOGLE_GENAI_USE_VERTEXAI=1
+GOOGLE_GENAI_USE_VERTEXAI=1 # Don't change
 ```
 
+# Preparing Data and Model 
+
+For this workflow, we have created a mock dataset containing features and video views for social media ads. The dataset is stored at: **~data/creative_tags_performance_data.csv`**.
+This data will be uploaded to BigQuery so that the agents can access it from the cloud. Additionally, a Logistic Regression model will be trained using BigQuery ML (BQML), which will be used by the agents to generate performance predictions for new creatives.
+
+To upload the data and train the model, simply run the following command from the **root folder**:
+
+```
+python scripts/setup_script.py
+```
+
+# Running the Agent 
+
+Run the following command from the root folder : 
+
+```
+adk web ./creative_analytics
+```
+
+> **Important:** Agents are designed to handle only questions related to historical ad performance or future ad predictions. If a user asks an out-of-scope or inappropriate question, the agent will politely respond that it can only answer queries within its domain.
+When interacting with the agent, ensure your questions are relevant to ad performance analysis or predictions. If the agent responds that a question is out of scope, rephrase your query accordingly.
+
+Few examples : 
+1. How did ads with logo perform ? 
+2. Which ads performed better - one with animal or human ?
+3. Upload an image and ask what will be the prediction for this ad ?
 
 
+### Example I 
+
+![Multi-Agent System Architecture](example_1.png)
+
+### Example II
+
+![Multi-Agent System Architecture](example_2.png)
+
+### Example III
+
+![Multi-Agent System Architecture](example_3.png)
+
+# Deployment & Testing on Vertex AI
+
+I deployed the **Creative Analytics Multi-Agent System** to **Vertex AI Engine**. To replicate, follow these steps:
+
+### Deploy the Agent 
+
+Run the script below to deploy the agent. This will automatically save the necessary resource ID to a `deployed_agent.json` file
+
+   ```
+   python step_1_deploy_agent.py
+   ```
+
+> **Important:** If the `deployed_agent.json` file is not created automatically and store it at root directory, you must create it manually with the following content, replacing the placeholder with the actual resource ID from the deployment output:
+
+```
+{
+    "resource_id": "resource_id_of_vertex_Ai_agent"
+}
+```
+
+### Test the Deployed Agent
+
+Run the interactive script to send messages to your deployed agent.
+
+```
+python step_2_test_deployed_agent.py
+```
+
+### Delete the Deployed Agent Resource
+
+To avoid ongoing costs, run the cleanup script to remove the deployed agent from your Google Cloud project.
+
+```
+python step_3_delete_deployed_agent.py
+```
