@@ -8,11 +8,11 @@ Brands constantly ask questions like:
 
 Answering these questions across dozens of brands and thousands of ads is slow, repetitive, and resource-intensive. Data analysts must manually write SQL, run statistical analysis, validate creative tags, clean results, and prepare insights. Meanwhile, clients wait days for answers—delaying decisions and increasing marketing costs.
 
-## Solution: Multi-Agent Creative Analytics System
+### Solution: Multi-Agent Creative Analytics System
 
 To solve this real-world problem, I built a **Multi-Agent Creative Analytics System** using **Google ADK**, designed to let brands get **accurate insights instantly** without depending on analysts.
 
-### Key Agents:
+#### Key Agents:
 
 - **Orchestrator Agent**: Understands user intent and routes tasks to the right specialist agent.  
 - **Statistical Analysis Agent**: Examines historical performance using SQL to answer *“What worked before?”*  
@@ -20,7 +20,7 @@ To solve this real-world problem, I built a **Multi-Agent Creative Analytics Sys
 
 Together, they automate **end-to-end creative intelligence**, empowering brands to act quickly and confidently.
 
-## Why This Matters
+### Why This Matters
 
 This system gives brands a **front-row seat** to their creative performance:
 
@@ -31,7 +31,7 @@ This system gives brands a **front-row seat** to their creative performance:
 
 For analytics teams, it removes repetitive SQL tasks and frees them to focus on **high-value insights**.
 
-## Real-World Impact
+### Real-World Impact
 
 - Faster answers to creative questions  
 - No more manual SQL or long turnaround times  
@@ -60,7 +60,7 @@ The diagram below illustrates the flow and interaction between agents in the Mul
 
 # Installation 
 
-## Project Directory Structure (for reference)
+### Project Directory Structure (for reference)
 
 ```
 multi_agent_system_google_adk/
@@ -80,7 +80,7 @@ multi_agent_system_google_adk/
 └── 
 ```
 
-## Prerequisites
+### Prerequisites
 
 - **Google Cloud Account**: Ensure you have a Google Cloud account with BigQuery enabled.
 - **Python Version**: Python 3.11.6+ recommended.
@@ -93,11 +93,11 @@ multi_agent_system_google_adk/
   - Telemetry API
   - BigQuery API
 
-## 1. Install Python Packages
+### 1. Install Python Packages
 
 Install all dependencies from the `requirements.txt` file located in **`creative_analytics/creative_analytics_agents/`** directory.
 
-## 2. Setup Google Cloud CLI
+### 2. Setup Google Cloud CLI
 
 Initialize Google Cloud CLI and authenticate your account:
 
@@ -106,7 +106,7 @@ gcloud init
 gcloud auth application-default login
 ```
 
-## 3. Create the .env file 
+### 3. Create the .env file 
 
 Create a .env file under **`creative_analytics/creative_analytics_agents/`** directory. Include the following environment variables:
 
@@ -116,17 +116,17 @@ GOOGLE_CLOUD_PROJECT_ID=your_google_project
 GOOGLE_CLOUD_LOCATION=google_cloud_location
 
 # BigQuery variables
-BQ_DATASET_NAME=creative_analytics # Keep same as it is
-BQ_TABLE_NAME=creative_tags_performance # Keep same as it is
-BQ_MODEL_NAME=video_views_classifier # Keep same as it is
+BQ_DATASET_NAME=creative_analytics # Don't change
+BQ_TABLE_NAME=creative_tags_performance # Don't change
+BQ_MODEL_NAME=video_views_classifier # Don't change
 
 # Dataset configurations
-DATASET_CONFIG_FILE=dataset_config.json # Keep same as it is
+DATASET_CONFIG_FILE=dataset_config.json # Don't change
 
 # Gemini model for agents
-ROOT_AGENT_MODEL=gemini-2.5-flash # Keep same as it is
-STATS_AGENT_MODEL=gemini-2.5-flash # Keep same as it is
-PREDICTOR_AGENT_MODEL=gemini-2.5-flash # Keep same as it is
+ROOT_AGENT_MODEL=gemini-2.5-flash # Don't change
+STATS_AGENT_MODEL=gemini-2.5-flash # Don't change
+PREDICTOR_AGENT_MODEL=gemini-2.5-flash # Don't change
 
 # Use Vertex AI
 GOOGLE_GENAI_USE_VERTEXAI=1
