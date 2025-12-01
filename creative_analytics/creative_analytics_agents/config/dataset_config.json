@@ -1,0 +1,12 @@
+{
+  "datasets": [
+    {
+      "type": "bigquery",
+      "name": "creative_analytics",
+      "description": "This data source contains tables related to performance metrics for creative assets",
+      "tables": [
+        "creative_tags_performance"
+      ]
+    }
+  ]
+}
