@@ -134,7 +134,7 @@ GOOGLE_GENAI_USE_VERTEXAI=1 # Don't change
 
 # Preparing Data and Model 
 
-For this workflow, we have created a mock dataset containing features and video views for social media ads. The dataset is stored at: **~data/creative_tags_performance_data.csv`**.
+For this workflow, we have created a mock dataset containing features and video views for social media ads. The dataset is stored at: **`data/creative_tags_performance_data.csv`**.
 This data will be uploaded to BigQuery so that the agents can access it from the cloud. Additionally, a Logistic Regression model will be trained using BigQuery ML (BQML), which will be used by the agents to generate performance predictions for new creatives.
 
 To upload the data and train the model, simply run the following command from the **root folder**:
@@ -152,7 +152,7 @@ adk web ./creative_analytics
 ```
 
 > **Important:** Agents are designed to handle only questions related to historical ad performance or future ad predictions. If a user asks an out-of-scope or inappropriate question, the agent will politely respond that it can only answer queries within its domain.
-When interacting with the agent, ensure your questions are relevant to ad performance analysis or predictions. If the agent responds that a question is out of scope, rephrase your query accordingly.
+When interacting with the agent, ensure your questions are relevant to ad performance analysis or predictions. If the agent responds that a question is out of scope, rephrase your query accordingly. Before executing any action, the agent may ask for your confirmation. Please read its response carefully and reply 'Yes' to proceed.
 
 Few examples : 
 1. How did ads with logo perform ? 
@@ -184,7 +184,7 @@ Run the script below to deploy the agent. This will automatically save the neces
    python step_1_deploy_agent.py
    ```
 
-> **Important:** If the `deployed_agent.json` file is not created automatically and store it at root directory, you must create it manually with the following content, replacing the placeholder with the actual resource ID from the deployment output:
+> **Important:** If the `deployed_agent.json` file is not created automatically at the root directory then you must create it manually with the following content, replacing the placeholder with the actual resource ID from the deployment output:
 
 ```
 {
